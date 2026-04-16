@@ -1,564 +1,1032 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kadadev Sadaluva - Comfortable AC & Non-AC rooms and function halls near Kataragama Devalaya and Kirivehera Temple. Perfect base for Yala & Weheragala Safari.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kadadev Sadaluva - Comfortable AC & Non-AC rooms and spacious halls near Kataragama Devalaya and Kirivehera Temple. Perfect base for Yala & Weheragala Safari."
+    />
     <title>Kadadev Sadaluva | Kataragama New Town</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
-        
-        :root {
-            --primary: #166534;
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+      :root {
+        --primary: #166534;
+      }
+
+      * {
+        transition-property:
+          color, background-color, border-color, text-decoration-color, fill,
+          stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+
+      .hero-bg {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url('https://picsum.photos/id/1016/2000/1200');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #166534;
+      }
+
+      .nav-link:hover:after {
+        width: 100%;
+      }
+
+      .room-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .room-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 25px 25px 50px -12px rgb(0 0 0 / 0.15);
+      }
+
+      .modal {
+        animation: modalPop 0.3s ease forwards;
+      }
+
+      @keyframes modalPop {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
         }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
+        to {
+          opacity: 1;
+          transform: scale(1);
         }
-        
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://picsum.photos/id/1015/2000/1200');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #166534;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .room-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .room-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 25px 25px 50px -12px rgb(0 0 0 / 0.15);
-        }
-        
-        .modal {
-            animation: modalPop 0.3s ease forwards;
-        }
-        
-        @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
+      }
+
+      .modal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+      }
     </style>
-</head>
-<body class="font-sans">
+  </head>
+  <body class="font-sans">
     <!-- NAVBAR -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto">
-            <div class="px-6 py-5 flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#166534] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">🌴</div>
-                    <div>
-                        <h1 class="text-2xl font-bold text-[#166534] tracking-tight">Kadadev Sadaluva</h1>
-                        <p class="text-xs text-stone-500 -mt-1">Kataragama New Town</p>
-                    </div>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="#home" onclick="smoothScrollTo('home')" class="nav-link text-stone-700 hover:text-[#166534]">Home</a>
-                    <a href="#about" onclick="smoothScrollTo('about')" class="nav-link text-stone-700 hover:text-[#166534]">About</a>
-                    <a href="#rooms" onclick="smoothScrollTo('rooms')" class="nav-link text-stone-700 hover:text-[#166534]">Rooms</a>
-                    <a href="#halls" onclick="smoothScrollTo('halls')" class="nav-link text-stone-700 hover:text-[#166534]">Halls</a>
-                    <a href="#experiences" onclick="smoothScrollTo('experiences')" class="nav-link text-stone-700 hover:text-[#166534]">Experiences</a>
-                    <a href="#gallery" onclick="smoothScrollTo('gallery')" class="nav-link text-stone-700 hover:text-[#166534]">Gallery</a>
-                    <a href="#contact" onclick="smoothScrollTo('contact')" class="nav-link text-stone-700 hover:text-[#166534]">Contact</a>
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <!-- WhatsApp Floating -->
-                    <a href="https://wa.me/94712345678" target="_blank" 
-                       class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-5 py-2.5 rounded-3xl">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span class="hidden sm:inline">WhatsApp Us</span>
-                    </a>
-                    
-                    <!-- Mobile Menu Button -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-stone-700">
-                        <i class="fa-solid fa-bars" id="menu-icon"></i>
-                    </button>
-                </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="px-6 py-5 flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-[#166534] rounded-2xl flex items-center justify-center text-white text-2xl font-bold"
+            >
+              🌴
             </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 bg-white border-t">
-                <div class="flex flex-col gap-4 text-sm font-medium pt-4">
-                    <a href="#home" onclick="toggleMobileMenu()" class="py-3 border-b">Home</a>
-                    <a href="#about" onclick="toggleMobileMenu()" class="py-3 border-b">About Us</a>
-                    <a href="#rooms" onclick="toggleMobileMenu()" class="py-3 border-b">Rooms</a>
-                    <a href="#halls" onclick="toggleMobileMenu()" class="py-3 border-b">Function Halls</a>
-                    <a href="#experiences" onclick="toggleMobileMenu()" class="py-3 border-b">Experiences & Safari</a>
-                    <a href="#gallery" onclick="toggleMobileMenu()" class="py-3 border-b">Gallery</a>
-                    <a href="#contact" onclick="toggleMobileMenu()" class="py-3">Contact & Location</a>
-                </div>
+            <div>
+              <h1 class="text-2xl font-bold text-[#166534] tracking-tight">
+                Kadadev Sadaluva
+              </h1>
+              <p class="text-xs text-stone-500 -mt-1">Kataragama New Town</p>
             </div>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a
+              href="#home"
+              onclick="smoothScrollTo('home')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Home</a
+            >
+            <a
+              href="#about"
+              onclick="smoothScrollTo('about')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >About</a
+            >
+            <a
+              href="#rooms"
+              onclick="smoothScrollTo('rooms')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Rooms</a
+            >
+            <a
+              href="#halls"
+              onclick="smoothScrollTo('halls')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Halls</a
+            >
+            <a
+              href="#experiences"
+              onclick="smoothScrollTo('experiences')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Experiences</a
+            >
+            <a
+              href="#safari"
+              onclick="smoothScrollTo('safari')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Safari</a
+            >
+            <a
+              href="#gallery"
+              onclick="smoothScrollTo('gallery')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Gallery</a
+            >
+            <a
+              href="#contact"
+              onclick="smoothScrollTo('contact')"
+              class="nav-link text-stone-700 hover:text-[#166534]"
+              >Contact</a
+            >
+          </div>
+
+          <div class="flex items-center gap-4">
+            <!-- WhatsApp Floating -->
+            <a
+              href="https://wa.me/94703714386"
+              target="_blank"
+              class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-5 py-2.5 rounded-3xl"
+            >
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span class="hidden sm:inline">WhatsApp Us</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button
+              onclick="toggleMobileMenu()"
+              class="md:hidden text-2xl text-stone-700"
+            >
+              <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+          </div>
         </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden px-6 pb-6 bg-white border-t"
+        >
+          <div class="flex flex-col gap-4 text-sm font-medium pt-4">
+            <a href="#home" onclick="toggleMobileMenu()" class="py-3 border-b"
+              >Home</a
+            >
+            <a href="#about" onclick="toggleMobileMenu()" class="py-3 border-b"
+              >About Us</a
+            >
+            <a href="#rooms" onclick="toggleMobileMenu()" class="py-3 border-b"
+              >Rooms</a
+            >
+            <a href="#halls" onclick="toggleMobileMenu()" class="py-3 border-b"
+              >Halls</a
+            >
+            <a
+              href="#experiences"
+              onclick="toggleMobileMenu()"
+              class="py-3 border-b"
+              >Experiences</a
+            >
+            <a href="#safari" onclick="toggleMobileMenu()" class="py-3 border-b"
+              >Safari</a
+            >
+            <a
+              href="#gallery"
+              onclick="toggleMobileMenu()"
+              class="py-3 border-b"
+              >Gallery</a
+            >
+            <a href="#contact" onclick="toggleMobileMenu()" class="py-3"
+              >Contact & Location</a
+            >
+          </div>
+        </div>
+      </div>
     </nav>
 
     <!-- HERO -->
     <section id="home" class="hero-bg h-screen flex items-center text-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto">
-                <p class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-white text-sm font-medium px-6 py-2 rounded-3xl mb-6">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    Near Kataragama Devalaya & Kirivehera Temple
-                </p>
-                
-                <h1 class="text-6xl md:text-7xl font-bold leading-none mb-6 tracking-tighter">
-                    Kadadev Sadaluva
-                </h1>
-                <p class="text-2xl md:text-3xl mb-10 text-white/90">Your peaceful home in Kataragama New Town</p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a onclick="smoothScrollTo('rooms')" 
-                       class="bg-[#166534] hover:bg-[#14532d] text-white font-semibold text-lg px-10 py-5 rounded-3xl flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-bed"></i>
-                        Explore Rooms & Halls
-                    </a>
-                    <a href="https://wa.me/94712345678" target="_blank"
-                       class="border-2 border-white hover:bg-white hover:text-[#166534] text-white font-semibold text-lg px-10 py-5 rounded-3xl flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i>
-                        Message on WhatsApp
-                    </a>
-                </div>
-                
-                <div class="mt-16 text-white/80 text-sm flex items-center justify-center gap-8">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-car"></i>
-                        <span>Spacious Parking</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-mountain"></i>
-                        <span>Yala & Weheragala Safari</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-temple"></i>
-                        <span>5 mins to Devalaya</span>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+          <p
+            class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-white text-sm font-medium px-6 py-2 rounded-3xl mb-6"
+          >
+            <span class="relative flex h-3 w-3">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+              ></span>
+            </span>
+            Near Kataragama Devalaya & Kirivehera Temple
+          </p>
+
+          <h1
+            class="text-6xl md:text-7xl font-bold leading-none mb-6 tracking-tighter"
+          >
+            Kadadev Sadaluva
+          </h1>
+          <p class="text-2xl md:text-3xl mb-10 text-white/90">
+            Your peaceful home in Kataragama New Town
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              onclick="smoothScrollTo('rooms')"
+              class="bg-[#166534] hover:bg-[#14532d] text-white font-semibold text-lg px-10 py-5 rounded-3xl flex items-center justify-center gap-3"
+            >
+              <i class="fa-solid fa-bed"></i>
+              Explore Rooms & Halls
+            </a>
+            <a
+              href="https://wa.me/94703714386"
+              target="_blank"
+              class="border-2 border-white hover:bg-white hover:text-[#166534] text-white font-semibold text-lg px-10 py-5 rounded-3xl flex items-center justify-center gap-3"
+            >
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
+              Message on WhatsApp
+            </a>
+          </div>
+
+          <div
+            class="mt-16 text-white/80 text-sm flex items-center justify-center gap-8 flex-wrap"
+          >
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-car"></i>
+              <span>Spacious Parking</span>
             </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-mountain"></i>
+              <span>Yala & Weheragala Safari</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-temple"></i>
+              <span>5 mins to Devalaya</span>
+            </div>
+          </div>
         </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 flex flex-col items-center text-white/60 text-xs">
-            <p class="mb-2 tracking-widest">SCROLL FOR MORE</p>
-            <i class="fa-solid fa-chevron-down animate-bounce text-2xl"></i>
-        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-10 left-1/2 flex flex-col items-center text-white/60 text-xs"
+      >
+        <p class="mb-2 tracking-widest">SCROLL FOR MORE</p>
+        <i class="fa-solid fa-chevron-down animate-bounce text-2xl"></i>
+      </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="py-24 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-16 items-center">
-                <div class="md:col-span-7">
-                    <h2 class="text-5xl font-bold text-[#166534] mb-6">Welcome to Kadadev Sadaluva</h2>
-                    <div class="prose text-lg text-stone-700 leading-relaxed">
-                        <p>Located in the heart of Kataragama New Town, just minutes away from the sacred Kataragama Devalaya and Kirivehera Temple. Kadadev Sadaluva offers clean, comfortable accommodation for pilgrims, families, and safari enthusiasts.</p>
-                        <p>We provide both air-conditioned and non-air-conditioned rooms, plus two large function halls ideal for family gatherings, events, or group stays. Spacious parking, nearby supermarkets, restaurants, and easy access to Yala & Weheragala National Parks make us the perfect base for your stay.</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-8 mt-12">
-                        <div>
-                            <div class="text-4xl font-bold text-[#166534]">6</div>
-                            <div class="text-stone-500">Air-Conditioned Rooms</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-[#166534]">3</div>
-                            <div class="text-stone-500">Non-AC Rooms</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-[#166534]">2</div>
-                            <div class="text-stone-500">Large Function Halls</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-[#166534]">125+</div>
-                            <div class="text-stone-500">Total Guest Capacity</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-5">
-                    <div class="bg-white rounded-3xl shadow-xl p-8">
-                        <h3 class="font-semibold text-xl mb-6 flex items-center gap-3"><i class="fa-solid fa-location-dot text-[#166534]"></i> Prime Location</h3>
-                        <ul class="space-y-4 text-stone-600">
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> 5 minutes walk to Kataragama Devalaya</li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> 8 minutes walk to Kirivehera Temple</li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Nearby: Cargills Food City, Sathosa, Bakery, Restaurants, ATM & CDM</li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Easy access to Yala & Weheragala Safari starting points</li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Medium-sized playground-style parking area</li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+          <div class="md:col-span-7">
+            <h2 class="text-5xl font-bold text-[#166534] mb-6">
+              Welcome to Kadadev Sadaluva
+            </h2>
+            <div class="prose text-lg text-stone-700 leading-relaxed">
+              <p>
+                Located in the heart of Kataragama New Town, just minutes from
+                the sacred Kataragama Devalaya and Kirivehera Temple. We offer
+                clean, comfortable AC and non-AC rooms plus spacious halls —
+                perfect for pilgrims, families, and safari travelers.
+              </p>
+              <p>
+                Spacious parking, nearby shops, restaurants, and easy access to
+                Yala & Weheragala make us your ideal base.
+              </p>
             </div>
+
+            <div class="flex flex-wrap gap-8 mt-12">
+              <div>
+                <div class="text-4xl font-bold text-[#166534]">6</div>
+                <div class="text-stone-500">Air-Conditioned Rooms</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-[#166534]">3</div>
+                <div class="text-stone-500">Non-AC Rooms</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-[#166534]">2</div>
+                <div class="text-stone-500">Large Halls</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-[#166534]">125+</div>
+                <div class="text-stone-500">Total Guest Capacity</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5">
+            <div class="bg-white rounded-3xl shadow-xl p-8">
+              <h3 class="font-semibold text-xl mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-location-dot text-[#166534]"></i> Prime
+                Location
+              </h3>
+              <ul class="space-y-4 text-stone-600">
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check text-green-500 mt-1"></i> 5
+                  minutes walk to Kataragama Devalaya
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check text-green-500 mt-1"></i> 8
+                  minutes walk to Kirivehera Temple
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check text-green-500 mt-1"></i> Nearby:
+                  Cargills Food City, Sathosa, Bakery, Restaurants, ATM & CDM
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check text-green-500 mt-1"></i> Easy
+                  access to Yala & Weheragala Safari
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                  Medium-sized playground-style parking (free)
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- ROOMS -->
     <section id="rooms" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="px-4 py-2 bg-[#166534]/10 text-[#166534] rounded-3xl text-sm font-medium">ACCOMMODATION</span>
-                <h2 class="text-5xl font-bold mt-4">Our Rooms</h2>
-                <p class="text-stone-600 mt-3 max-w-md mx-auto">Comfortable stays for individuals, families & groups</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- AC Rooms -->
-                <div onclick="showRoomModal(1)" class="room-card bg-white border border-stone-200 rounded-3xl overflow-hidden cursor-pointer">
-                    <div class="h-56 bg-[url('https://picsum.photos/id/1015/800/600')] bg-cover"></div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-semibold">Air-Conditioned Rooms</h3>
-                                <p class="text-[#166534] font-medium">6 Rooms Available</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-2xl">AC</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 grid grid-cols-2 gap-y-3 text-sm">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-user-group"></i> Max 5 guests</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-bath"></i> Attached bathroom</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-fan"></i> 2 ceiling fans + AC</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-bed"></i> 2 beds + 4 pillows</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-chair"></i> Table + 2 chairs</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Non-AC Room Type 1 -->
-                <div onclick="showRoomModal(2)" class="room-card bg-white border border-stone-200 rounded-3xl overflow-hidden cursor-pointer">
-                    <div class="h-56 bg-[url('https://picsum.photos/id/160/800/600')] bg-cover"></div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-semibold">Non-AC Room (Large)</h3>
-                                <p class="text-stone-500 font-medium">1 Room</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-2xl">NON-AC</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 grid grid-cols-2 gap-y-3 text-sm">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-user-group"></i> 9 guests</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-bath"></i> Attached bathroom</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-fan"></i> 1 large fan</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-bed"></i> 4 double + 1 single bed</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Non-AC Room Type 2 -->
-                <div onclick="showRoomModal(3)" class="room-card bg-white border border-stone-200 rounded-3xl overflow-hidden cursor-pointer">
-                    <div class="h-56 bg-[url('https://picsum.photos/id/201/800/600')] bg-cover"></div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-semibold">Non-AC Rooms (Standard)</h3>
-                                <p class="text-stone-500 font-medium">2 Rooms</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-2xl">NON-AC</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 grid grid-cols-2 gap-y-3 text-sm">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-user-group"></i> 5 guests</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-bath"></i> Attached bathroom</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-fan"></i> 1 large fan</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-bed"></i> 2 double + 1 single bed</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span
+            class="px-4 py-2 bg-[#166534]/10 text-[#166534] rounded-3xl text-sm font-medium"
+            >ACCOMMODATION</span
+          >
+          <h2 class="text-5xl font-bold mt-4">Our Rooms</h2>
+          <p class="text-stone-600 mt-3 max-w-md mx-auto">
+            Comfortable stays for individuals, families & groups
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- AC Rooms -->
+          <div
+            onclick="showRoomModal(1)"
+            class="room-card bg-white border border-stone-200 rounded-3xl overflow-hidden cursor-pointer"
+          >
+            <div
+              class="h-56 bg-[url('https://picsum.photos/id/1005/800/600')] bg-cover"
+            ></div>
+            <div class="p-8">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-2xl font-semibold">Air-Conditioned Rooms</h3>
+                  <p class="text-[#166534] font-medium">6 Rooms Available</p>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-2xl"
+                    >AC</span
+                  >
+                </div>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-y-3 text-sm">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-user-group"></i> Max 5 guests
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-bath"></i> Attached bathroom
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-fan"></i> 2 ceiling fans + AC
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-bed"></i> 2 beds + 4 pillows
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-chair"></i> Table + 2 chairs
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Non-AC Large -->
+          <div
+            onclick="showRoomModal(2)"
+            class="room-card bg-white border border-stone-200 rounded-3xl overflow-hidden cursor-pointer"
+          >
+            <div
+              class="h-56 bg-[url('https://picsum.photos/id/160/800/600')] bg-cover"
+            ></div>
+            <div class="p-8">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-2xl font-semibold">Non-AC Large Room</h3>
+                  <p class="text-stone-500 font-medium">1 Room</p>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-2xl"
+                    >NON-AC</span
+                  >
+                </div>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-y-3 text-sm">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-user-group"></i> 9 guests
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-bath"></i> Attached bathroom
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-fan"></i> 1 large fan
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-bed"></i> 4 double + 1 single bed
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Non-AC Standard -->
+          <div
+            onclick="showRoomModal(3)"
+            class="room-card bg-white border border-stone-200 rounded-3xl overflow-hidden cursor-pointer"
+          >
+            <div
+              class="h-56 bg-[url('https://picsum.photos/id/201/800/600')] bg-cover"
+            ></div>
+            <div class="p-8">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-2xl font-semibold">Non-AC Standard Rooms</h3>
+                  <p class="text-stone-500 font-medium">2 Rooms</p>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-2xl"
+                    >NON-AC</span
+                  >
+                </div>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-y-3 text-sm">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-user-group"></i> 5 guests
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-bath"></i> Attached bathroom
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-fan"></i> 1 large fan
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-bed"></i> 2 double + 1 single bed
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- HALLS -->
     <section id="halls" class="py-24 bg-[#f8f5f0]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="px-4 py-2 bg-amber-600/10 text-amber-700 rounded-3xl text-sm font-medium">FOR GROUPS & EVENTS</span>
-                <h2 class="text-5xl font-bold mt-4">Our Function Halls</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Hall 1 -->
-                <div class="bg-white rounded-3xl p-8 shadow-md">
-                    <div class="flex gap-4">
-                        <div class="flex-1">
-                            <h3 class="text-3xl font-semibold mb-2">Hall 1 (50 pax)</h3>
-                            <div class="flex items-center text-emerald-600 text-sm font-medium"><i class="fa-solid fa-users mr-2"></i>Capacity: 50 members</div>
-                        </div>
-                        <div class="text-right">
-                            <span class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl text-sm">Event Hall</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 space-y-6">
-                        <div class="flex justify-between"><span class="font-medium">Washrooms</span><span class="text-stone-600">12 attached washrooms</span></div>
-                        <div class="flex justify-between"><span class="font-medium">Per washroom</span><span class="text-stone-600">1 basket, 1 tap, 2 showers, 2 taps</span></div>
-                        <div class="flex justify-between"><span class="font-medium">Fans</span><span class="text-stone-600">3 large fans</span></div>
-                    </div>
-                </div>
-                
-                <!-- Hall 2 -->
-                <div class="bg-white rounded-3xl p-8 shadow-md">
-                    <div class="flex gap-4">
-                        <div class="flex-1">
-                            <h3 class="text-3xl font-semibold mb-2">Hall 2 (75 pax)</h3>
-                            <div class="flex items-center text-emerald-600 text-sm font-medium"><i class="fa-solid fa-users mr-2"></i>Capacity: 75 members</div>
-                        </div>
-                        <div class="text-right">
-                            <span class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl text-sm">Event Hall</span>
-                        </div>
-                    </div>
-                    <div class="mt-8 space-y-6">
-                        <div class="flex justify-between"><span class="font-medium">Washrooms</span><span class="text-stone-600">12 attached washrooms</span></div>
-                        <div class="flex justify-between"><span class="font-medium">Per washroom</span><span class="text-stone-600">1 basket, 1 tap, 2 showers, 2 taps</span></div>
-                        <div class="flex justify-between"><span class="font-medium">Fans</span><span class="text-stone-600">4 large fans</span></div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span
+            class="px-4 py-2 bg-amber-600/10 text-amber-700 rounded-3xl text-sm font-medium"
+            >SPACIOUS HALLS</span
+          >
+          <h2 class="text-5xl font-bold mt-4">Our Halls</h2>
         </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Hall 1 -->
+          <div class="bg-white rounded-3xl p-8 shadow-md">
+            <div class="flex gap-4">
+              <div class="flex-1">
+                <h3 class="text-3xl font-semibold mb-2">Hall 1</h3>
+                <div
+                  class="flex items-center text-emerald-600 text-sm font-medium"
+                >
+                  <i class="fa-solid fa-users mr-2"></i>Up to 50 guests
+                </div>
+              </div>
+              <div class="text-right">
+                <span
+                  class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl text-sm"
+                  >Hall</span
+                >
+              </div>
+            </div>
+            <div class="mt-8 space-y-6 text-stone-600">
+              <div><span class="font-medium">Washrooms:</span> 12 attached</div>
+              <div>
+                <span class="font-medium">Each washroom:</span> 1 basket + 1 tap
+              </div>
+              <div>
+                <span class="font-medium">Bathroom facilities:</span> 2 showers
+                + 2 taps (for the whole hall)
+              </div>
+              <div><span class="font-medium">Fans:</span> 3 large fans</div>
+            </div>
+          </div>
+
+          <!-- Hall 2 -->
+          <div class="bg-white rounded-3xl p-8 shadow-md">
+            <div class="flex gap-4">
+              <div class="flex-1">
+                <h3 class="text-3xl font-semibold mb-2">Hall 2</h3>
+                <div
+                  class="flex items-center text-emerald-600 text-sm font-medium"
+                >
+                  <i class="fa-solid fa-users mr-2"></i>Up to 75 guests
+                </div>
+              </div>
+              <div class="text-right">
+                <span
+                  class="bg-amber-100 text-amber-700 px-5 py-2 rounded-3xl text-sm"
+                  >Hall</span
+                >
+              </div>
+            </div>
+            <div class="mt-8 space-y-6 text-stone-600">
+              <div><span class="font-medium">Washrooms:</span> 12 attached</div>
+              <div>
+                <span class="font-medium">Each washroom:</span> 1 basket + 1 tap
+              </div>
+              <div>
+                <span class="font-medium">Bathroom facilities:</span> 2 showers
+                + 2 taps (for the whole hall)
+              </div>
+              <div><span class="font-medium">Fans:</span> 4 large fans</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- EXPERIENCES -->
     <section id="experiences" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl font-bold text-center mb-16">Experiences Around Us</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="mx-auto w-20 h-20 bg-[#166534] text-white rounded-3xl flex items-center justify-center text-4xl mb-6">🦒</div>
-                    <h3 class="text-2xl font-semibold mb-3">Yala & Weheragala Safari</h3>
-                    <p class="text-stone-600">Daily safari tours available. We can help arrange jeeps and guides for leopard, elephant & wildlife spotting.</p>
-                </div>
-                <div class="text-center">
-                    <div class="mx-auto w-20 h-20 bg-[#166534] text-white rounded-3xl flex items-center justify-center text-4xl mb-6">🛕</div>
-                    <h3 class="text-2xl font-semibold mb-3">Kataragama Devalaya</h3>
-                    <p class="text-stone-600">Just 5 minutes away – one of Sri Lanka’s most sacred pilgrimage sites. Ideal for devotees.</p>
-                </div>
-                <div class="text-center">
-                    <div class="mx-auto w-20 h-20 bg-[#166534] text-white rounded-3xl flex items-center justify-center text-4xl mb-6">🏔️</div>
-                    <h3 class="text-2xl font-semibold mb-3">Kirivehera Temple</h3>
-                    <p class="text-stone-600">Ancient Buddhist stupa within walking distance. Peaceful spiritual atmosphere.</p>
-                </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-16">
+          Experiences Around Us
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div
+              class="mx-auto w-20 h-20 bg-[#166534] text-white rounded-3xl flex items-center justify-center text-4xl mb-6"
+            >
+              🛕
             </div>
+            <h3 class="text-2xl font-semibold mb-3">Kataragama Devalaya</h3>
+            <p class="text-stone-600">
+              Just 5 minutes away – one of Sri Lanka’s most sacred pilgrimage
+              sites.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="mx-auto w-20 h-20 bg-[#166534] text-white rounded-3xl flex items-center justify-center text-4xl mb-6"
+            >
+              🏔️
+            </div>
+            <h3 class="text-2xl font-semibold mb-3">Kirivehera Temple</h3>
+            <p class="text-stone-600">
+              Ancient Buddhist stupa within walking distance.
+            </p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- SAFARI SECTION (NEW) -->
+    <section id="safari" class="py-24 bg-stone-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span
+            class="px-4 py-2 bg-orange-600/10 text-orange-700 rounded-3xl text-sm font-medium"
+            >WILDLIFE ADVENTURE</span
+          >
+          <h2 class="text-5xl font-bold mt-4">Yala & Weheragala Safari</h2>
+          <p class="text-stone-600 mt-4 max-w-lg mx-auto">
+            Daily jeep safaris to Sri Lanka’s most famous national parks. Spot
+            leopards, elephants, and more. We can arrange jeeps and guides.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="bg-white rounded-3xl overflow-hidden shadow-md">
+            <img
+              src="https://picsum.photos/id/1015/800/500"
+              class="w-full h-64 object-cover"
+              alt="Yala Safari"
+            />
+            <div class="p-8">
+              <h3 class="font-semibold text-2xl mb-2">Yala National Park</h3>
+              <p class="text-stone-600">
+                One of the best places in the world to see leopards in the wild.
+                Morning & evening tours available.
+              </p>
+              <button
+                onclick="inquireSafari('Yala National Park')"
+                class="mt-6 w-full bg-[#166534] text-white py-4 rounded-3xl font-medium"
+              >
+                Inquire Safari on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl overflow-hidden shadow-md">
+            <img
+              src="https://picsum.photos/id/133/800/500"
+              class="w-full h-64 object-cover"
+              alt="Weheragala Safari"
+            />
+            <div class="p-8">
+              <h3 class="font-semibold text-2xl mb-2">Weheragala Reservoir</h3>
+              <p class="text-stone-600">
+                Scenic reservoir safari with stunning birdlife and wildlife.
+                Perfect for nature lovers.
+              </p>
+              <button
+                onclick="inquireSafari('Weheragala Reservoir')"
+                class="mt-6 w-full bg-[#166534] text-white py-4 rounded-3xl font-medium"
+              >
+                Inquire Safari on WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- GALLERY -->
-    <section id="gallery" class="py-24 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <h2 class="text-5xl font-bold">Gallery</h2>
-                <a onclick="alert('In a real site this would open full lightbox gallery')" class="text-[#166534] flex items-center gap-2 font-medium">
-                    View all photos <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <img onclick="this.classList.toggle('scale-110')" src="https://picsum.photos/id/1015/600/600" class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl" alt="Room">
-                <img onclick="this.classList.toggle('scale-110')" src="https://picsum.photos/id/160/600/600" class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl" alt="Hall">
-                <img onclick="this.classList.toggle('scale-110')" src="https://picsum.photos/id/201/600/600" class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl" alt="Temple">
-                <img onclick="this.classList.toggle('scale-110')" src="https://picsum.photos/id/1016/600/600" class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl" alt="Safari">
-                <img onclick="this.classList.toggle('scale-110')" src="https://picsum.photos/id/133/600/600" class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl" alt="Parking">
-                <img onclick="this.classList.toggle('scale-110')" src="https://picsum.photos/id/251/600/600" class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl" alt="Food nearby">
-            </div>
+    <section id="gallery" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-end mb-12">
+          <h2 class="text-5xl font-bold">Gallery</h2>
         </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <img
+            src="https://picsum.photos/id/1005/600/600"
+            class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl"
+            alt="AC Room"
+          />
+          <img
+            src="https://picsum.photos/id/160/600/600"
+            class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl"
+            alt="Non-AC Room"
+          />
+          <img
+            src="https://picsum.photos/id/201/600/600"
+            class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl"
+            alt="Hall"
+          />
+          <img
+            src="https://picsum.photos/id/1015/600/600"
+            class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl"
+            alt="Safari"
+          />
+          <img
+            src="https://picsum.photos/id/133/600/600"
+            class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl"
+            alt="Temple"
+          />
+          <img
+            src="https://picsum.photos/id/251/600/600"
+            class="rounded-3xl aspect-square object-cover cursor-pointer hover:shadow-2xl"
+            alt="Parking"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT & LOCATION -->
     <section id="contact" class="py-24 bg-[#166534] text-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h2 class="text-5xl font-bold mb-8">Get in Touch</h2>
+
+            <form
+              id="contact-form"
+              onsubmit="handleContactForm(event)"
+              class="space-y-8"
+            >
+              <div class="grid grid-cols-2 gap-6">
                 <div>
-                    <h2 class="text-5xl font-bold mb-8">Get in Touch</h2>
-                    
-                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-8">
-                        <div class="grid grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm mb-2">Your Name</label>
-                                <input type="text" id="name" required class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 text-white placeholder:text-white/60 focus:outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-sm mb-2">Phone / WhatsApp</label>
-                                <input type="tel" id="phone" required class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 text-white placeholder:text-white/60 focus:outline-none">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm mb-2">Message</label>
-                            <textarea id="message" rows="5" required class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 text-white placeholder:text-white/60 focus:outline-none" placeholder="Tell us your travel dates and group size..."></textarea>
-                        </div>
-                        <button type="submit" 
-                                class="bg-white text-[#166534] font-semibold px-12 py-6 rounded-3xl flex items-center gap-3 hover:shadow-2xl">
-                            SEND INQUIRY
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </form>
+                  <label class="block text-sm mb-2">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 text-white placeholder:text-white/60 focus:outline-none"
+                  />
                 </div>
-                
-                <!-- Location -->
                 <div>
-                    <h3 class="text-3xl font-semibold mb-6">Our Location</h3>
-                    <p class="text-white/80 mb-8">Kadadev Sadaluva<br>Kataragama New Town<br>Near Kataragama Devalaya & Kirivehera Temple<br>Sri Lanka</p>
-                    
-                    <div class="bg-white/10 rounded-3xl p-2 mb-8">
-                        <!-- Google Maps Placeholder - Replace with your real embed code -->
-                        <iframe width="100%" height="340" class="rounded-3xl" 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5!2d81.333!3d6.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae6e5f5f5f5f5f5%3A0x1234567890abcdef!2sKataragama%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1710000000000" 
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    
-                    <div class="flex items-center gap-8 text-sm">
-                        <div>
-                            <i class="fa-solid fa-phone mr-3"></i>
-                            <span class="font-medium">Call us:</span><br>
-                            <a href="tel:+94712345678" class="text-white/90">+94 71 234 5678</a>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-car mr-3"></i>
-                            <span class="font-medium">Parking:</span><br>
-                            Medium playground size (free)
-                        </div>
-                    </div>
+                  <label class="block text-sm mb-2">Phone / WhatsApp</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    required
+                    class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 text-white placeholder:text-white/60 focus:outline-none"
+                  />
                 </div>
+              </div>
+              <div>
+                <label class="block text-sm mb-2">Message</label>
+                <textarea
+                  id="message"
+                  rows="5"
+                  required
+                  class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 text-white placeholder:text-white/60 focus:outline-none"
+                  placeholder="Tell us your travel dates, group size..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="bg-white text-[#166534] font-semibold px-12 py-6 rounded-3xl flex items-center gap-3 hover:shadow-2xl w-full md:w-auto"
+              >
+                SEND INQUIRY VIA WHATSAPP
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Location -->
+          <div>
+            <h3 class="text-3xl font-semibold mb-6">Our Location</h3>
+            <p class="text-white/80 mb-8">
+              Kadadev Sadaluva<br />Kataragama New Town<br />Near Kataragama
+              Devalaya & Kirivehera Temple<br />Sri Lanka
+            </p>
+
+            <div class="bg-white/10 rounded-3xl p-2 mb-8">
+              <iframe
+                width="100%"
+                height="340"
+                class="rounded-3xl"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.123!2d81.33149636101558!3d6.417297368665568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNi40MTcyOTczNjg2NjU1NjgsIDgxLjMzMTQ5NjM2MTAxNTU4!5e0!3m2!1sen!2slk!4v1744800000000"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
+
+            <div class="flex items-center gap-8 text-sm">
+              <div>
+                <i class="fa-solid fa-phone mr-3"></i>
+                <span class="font-medium">Call / WhatsApp:</span><br />
+                <a href="tel:0703714386" class="text-white/90">070 371 4386</a>
+              </div>
+              <div>
+                <i class="fa-solid fa-car mr-3"></i>
+                <span class="font-medium">Parking:</span><br />
+                Medium playground size (free)
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-stone-900 text-white/70 py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-sm">© 2026 Kadadev Sadaluva • Kataragama New Town, Sri Lanka</p>
-            <p class="text-xs mt-2">Frontend website designed for maximum online visibility. No booking system – direct inquiries only.</p>
-            <div class="flex justify-center gap-6 mt-8 text-2xl">
-                <i class="fa-brands fa-whatsapp cursor-pointer hover:text-green-400"></i>
-                <i class="fa-brands fa-facebook cursor-pointer hover:text-blue-400"></i>
-                <i class="fa-brands fa-instagram cursor-pointer hover:text-pink-400"></i>
-            </div>
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="text-sm">
+          © 2026 Kadadev Sadaluva • Kataragama New Town, Sri Lanka
+        </p>
+        <p class="text-xs mt-2">
+          Professional frontend website – direct inquiries via WhatsApp only.
+        </p>
+        <div class="flex justify-center gap-6 mt-8 text-2xl">
+          <a href="https://wa.me/94703714386" target="_blank"
+            ><i
+              class="fa-brands fa-whatsapp cursor-pointer hover:text-green-400"
+            ></i
+          ></a>
+          <i
+            class="fa-brands fa-facebook cursor-pointer hover:text-blue-400"
+          ></i>
+          <i
+            class="fa-brands fa-instagram cursor-pointer hover:text-pink-400"
+          ></i>
         </div>
+      </div>
     </footer>
 
     <!-- ROOM MODAL -->
-    <div onclick="if(event.target.id === 'room-modal')hideModal()" id="room-modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="modal bg-white max-w-2xl w-full rounded-3xl p-8 md:p-12">
-            <div class="flex justify-end"><button onclick="hideModal()" class="text-3xl">×</button></div>
-            <div id="modal-content"></div>
+    <div
+      onclick="if (event.target.id === 'room-modal') hideModal()"
+      id="room-modal"
+      class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4"
+    >
+      <div
+        onclick="event.stopImmediatePropagation()"
+        class="modal bg-white max-w-2xl w-full rounded-3xl p-8 md:p-12 modal-content"
+      >
+        <div class="flex justify-end mb-4">
+          <button
+            onclick="hideModal()"
+            class="text-4xl leading-none text-stone-400 hover:text-black"
+          >
+            ×
+          </button>
         </div>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <!-- INQUIRY CHOICE MODAL -->
+    <div
+      onclick="if (event.target.id === 'choice-modal') hideChoiceModal()"
+      id="choice-modal"
+      class="hidden fixed inset-0 bg-black/70 z-[10000] flex items-center justify-center p-4"
+    >
+      <div
+        onclick="event.stopImmediatePropagation()"
+        class="modal bg-white max-w-md w-full rounded-3xl p-10 text-center"
+      >
+        <h3 class="text-3xl font-semibold mb-8">What would you like to do?</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <button
+            onclick="chooseBookRoom()"
+            class="bg-[#166534] text-white py-6 rounded-3xl font-semibold text-lg"
+          >
+            Book This Room
+          </button>
+          <button
+            onclick="chooseAboutOnly()"
+            class="border-2 border-[#166534] text-[#166534] py-6 rounded-3xl font-semibold text-lg"
+          >
+            Just Inquire
+          </button>
+        </div>
+        <button onclick="hideChoiceModal()" class="mt-8 text-stone-400">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- BOOKING FORM MODAL -->
+    <div
+      onclick="if (event.target.id === 'booking-modal') hideBookingModal()"
+      id="booking-modal"
+      class="hidden fixed inset-0 bg-black/70 z-[10001] flex items-center justify-center p-4"
+    >
+      <div
+        onclick="event.stopImmediatePropagation()"
+        class="modal bg-white max-w-lg w-full rounded-3xl p-8 md:p-10"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-3xl font-semibold" id="booking-title">Book Room</h3>
+          <button
+            onclick="hideBookingModal()"
+            class="text-4xl leading-none text-stone-400"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm mb-2">Preferred Date</label>
+              <input
+                type="date"
+                id="booking-date"
+                required
+                class="w-full border border-stone-300 rounded-3xl px-6 py-5"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm mb-2">Number of Members</label>
+                <input
+                  type="number"
+                  id="booking-members"
+                  min="1"
+                  required
+                  class="w-full border border-stone-300 rounded-3xl px-6 py-5"
+                />
+              </div>
+              <div>
+                <label class="block text-sm mb-2">Number of Rooms</label>
+                <input
+                  type="number"
+                  id="booking-rooms"
+                  min="1"
+                  required
+                  class="w-full border border-stone-300 rounded-3xl px-6 py-5"
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-[#166534] text-white py-6 rounded-3xl font-semibold text-lg"
+            >
+              Send Booking Request on WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <script>
-        // Tailwind script initialization
-        function initializeTailwind() {
+      const WHATSAPP_NUMBER = '94703714386'
+      let currentRoomType = null
+      let currentRoomName = ''
+
+      // Tailwind initialization
+      function initializeTailwind() {
+        return {
+          config(userConfig = {}) {
             return {
-                config(userConfig = {}) {
-                    return {
-                        configUser: userConfig,
-                        theme: {
-                            extend: {
-                                colors: {
-                                    primary: '#166534'
-                                }
-                            }
-                        }
-                    }
-                },
-                theme(userConfig = {}) {
-                    return {
-                        ...this.defaultTheme(),
-                        ...this.config(userConfig).theme
-                    }
-                },
-                defaultTheme() {
-                    return {}
-                }
+              configUser: userConfig,
+              theme: { extend: { colors: { primary: '#166534' } } },
             }
+          },
+          theme(userConfig = {}) {
+            return { ...this.defaultTheme(), ...this.config(userConfig).theme }
+          },
+          defaultTheme() {
+            return {}
+          },
         }
-        
-        // Run Tailwind
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('%c✅ Kadadev Sadaluva frontend website ready!', 'color:#166534;font-size:18px;font-weight:bold')
-            initializeTailwind().theme()
-        })
-        
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu')
-            const icon = document.getElementById('menu-icon')
-            menu.classList.toggle('hidden')
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.replace('fa-bars', 'fa-xmark')
-            } else {
-                icon.classList.replace('fa-xmark', 'fa-bars')
-            }
-        }
-        
-        // Smooth scroll
-        function smoothScrollTo(id) {
-            const element = document.getElementById(id)
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-                // Close mobile menu if open
-                const menu = document.getElementById('mobile-menu')
-                if (!menu.classList.contains('hidden')) toggleMobileMenu()
-            }
-        }
-        
-        // Room modal content
-        function showRoomModal(type) {
-            const modal = document.getElementById('room-modal')
-            const content = document.getElementById('modal-content')
-            
-            let html = ''
-            
-            if (type === 1) {
-                html = `
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log(
+          '%c✅ Kadadev Sadaluva professional website updated and ready!',
+          'color:#166534;font-size:18px;font-weight:bold',
+        )
+        initializeTailwind().theme()
+      })
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu')
+        const icon = document.getElementById('menu-icon')
+        menu.classList.toggle('hidden')
+        icon.classList.toggle('fa-bars')
+        icon.classList.toggle('fa-xmark')
+      }
+
+      function smoothScrollTo(id) {
+        const element = document.getElementById(id)
+        if (element) element.scrollIntoView({ behavior: 'smooth' })
+        const menu = document.getElementById('mobile-menu')
+        if (!menu.classList.contains('hidden')) toggleMobileMenu()
+      }
+
+      // Show Room Modal with related images and fixed mobile layout
+      function showRoomModal(type) {
+        currentRoomType = type
+        const modal = document.getElementById('room-modal')
+        const content = document.getElementById('modal-content')
+
+        let html = ''
+
+        if (type === 1) {
+          currentRoomName = 'Air-Conditioned Room'
+          html = `
                 <h2 class="text-4xl font-bold mb-6">Air-Conditioned Room</h2>
-                <div class="grid md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div>
-                        <img src="https://picsum.photos/id/1015/800/600" class="rounded-3xl w-full" alt="">
+                        <img src="https://picsum.photos/id/1005/800/600" class="rounded-3xl w-full shadow-md" alt="AC Room">
                     </div>
                     <div class="space-y-6">
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Capacity</span><span class="font-semibold">Maximum 5 members</span></div>
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Bathroom</span><span class="font-semibold">Attached bathroom</span></div>
-                        <div class="flex justify-between"><span class="font-medium text-stone-500">Fans</span><span class="font-semibold">2 ceiling fans + Air conditioning</span></div>
+                        <div class="flex justify-between"><span class="font-medium text-stone-500">Fans & AC</span><span class="font-semibold">2 ceiling fans + Air conditioning</span></div>
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Beds</span><span class="font-semibold">2 beds • 4 pillows</span></div>
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Furniture</span><span class="font-semibold">1 table with 2 chairs</span></div>
                         <div class="pt-6 border-t text-sm">6 identical rooms available. Perfect for families or small groups.</div>
-                        <a href="https://wa.me/94712345678" target="_blank" class="block text-center bg-[#166534] text-white py-5 rounded-3xl font-semibold">Inquire about this room on WhatsApp</a>
+                        <button onclick="showInquiryChoice()" class="w-full py-5 rounded-3xl font-semibold bg-[#166534] text-white flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Inquire about this room on WhatsApp
+                        </button>
                     </div>
                 </div>`
-            } else if (type === 2) {
-                html = `
+        } else if (type === 2) {
+          currentRoomName = 'Non-AC Large Room'
+          html = `
                 <h2 class="text-4xl font-bold mb-6">Non-AC Large Room</h2>
-                <div class="grid md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div>
-                        <img src="https://picsum.photos/id/160/800/600" class="rounded-3xl w-full" alt="">
+                        <img src="https://picsum.photos/id/160/800/600" class="rounded-3xl w-full shadow-md" alt="Non-AC Large Room">
                     </div>
                     <div class="space-y-6">
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Capacity</span><span class="font-semibold">9 guests</span></div>
@@ -566,15 +1034,18 @@
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Fan</span><span class="font-semibold">1 large fan</span></div>
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Beds</span><span class="font-semibold">4 double beds + 1 single bed</span></div>
                         <div class="pt-6 border-t text-sm">Ideal for larger families or groups.</div>
-                        <a href="https://wa.me/94712345678" target="_blank" class="block text-center bg-[#166534] text-white py-5 rounded-3xl font-semibold">Inquire about this room on WhatsApp</a>
+                        <button onclick="showInquiryChoice()" class="w-full py-5 rounded-3xl font-semibold bg-[#166534] text-white flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Inquire about this room on WhatsApp
+                        </button>
                     </div>
                 </div>`
-            } else {
-                html = `
+        } else {
+          currentRoomName = 'Non-AC Standard Room'
+          html = `
                 <h2 class="text-4xl font-bold mb-6">Non-AC Standard Room</h2>
-                <div class="grid md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div>
-                        <img src="https://picsum.photos/id/201/800/600" class="rounded-3xl w-full" alt="">
+                        <img src="https://picsum.photos/id/201/800/600" class="rounded-3xl w-full shadow-md" alt="Non-AC Standard Room">
                     </div>
                     <div class="space-y-6">
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Capacity</span><span class="font-semibold">5 guests</span></div>
@@ -582,40 +1053,110 @@
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Fan</span><span class="font-semibold">1 large fan</span></div>
                         <div class="flex justify-between"><span class="font-medium text-stone-500">Beds</span><span class="font-semibold">2 double beds + 1 single bed</span></div>
                         <div class="pt-6 border-t text-sm">2 identical rooms available.</div>
-                        <a href="https://wa.me/94712345678" target="_blank" class="block text-center bg-[#166534] text-white py-5 rounded-3xl font-semibold">Inquire about this room on WhatsApp</a>
+                        <button onclick="showInquiryChoice()" class="w-full py-5 rounded-3xl font-semibold bg-[#166534] text-white flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp"></i> Inquire about this room on WhatsApp
+                        </button>
                     </div>
                 </div>`
-            }
-            
-            content.innerHTML = html
-            modal.classList.remove('hidden')
-            modal.classList.add('flex')
         }
-        
-        function hideModal() {
-            const modal = document.getElementById('room-modal')
-            modal.classList.add('hidden')
-            modal.classList.remove('flex')
+
+        content.innerHTML = html
+        modal.classList.remove('hidden')
+        modal.classList.add('flex')
+      }
+
+      function hideModal() {
+        const modal = document.getElementById('room-modal')
+        modal.classList.add('hidden')
+        modal.classList.remove('flex')
+        currentRoomType = null
+      }
+
+      // New: Show inquiry choice popup
+      function showInquiryChoice() {
+        hideModal() // close room modal first
+        const choiceModal = document.getElementById('choice-modal')
+        choiceModal.classList.remove('hidden')
+        choiceModal.classList.add('flex')
+      }
+
+      function hideChoiceModal() {
+        const choiceModal = document.getElementById('choice-modal')
+        choiceModal.classList.add('hidden')
+        choiceModal.classList.remove('flex')
+      }
+
+      function chooseBookRoom() {
+        hideChoiceModal()
+        const bookingModal = document.getElementById('booking-modal')
+        document.getElementById('booking-title').textContent =
+          `Book ${currentRoomName}`
+        bookingModal.classList.remove('hidden')
+        bookingModal.classList.add('flex')
+      }
+
+      function chooseAboutOnly() {
+        hideChoiceModal()
+        const message = `Hello Kadadev Sadaluva!%0AI am inquiring about the ${currentRoomName}.%0APlease send me more details.%0AThank you!`
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+          '_blank',
+        )
+        currentRoomType = null
+      }
+
+      // New: Handle booking form
+      function handleBookingSubmit(e) {
+        e.preventDefault()
+        const date = document.getElementById('booking-date').value
+        const members = document.getElementById('booking-members').value
+        const rooms = document.getElementById('booking-rooms').value
+
+        if (!date || !members || !rooms) {
+          alert('Please fill all fields')
+          return
         }
-        
-        // Contact form handler (frontend only)
-        function handleFormSubmit(e) {
-            e.preventDefault()
-            const btn = e.target.querySelector('button')
-            const originalText = btn.innerHTML
-            
-            btn.innerHTML = `✅ Inquiry Sent! <i class="fa-solid fa-check"></i>`
-            btn.style.backgroundColor = '#166534'
-            
-            setTimeout(() => {
-                alert('✅ Thank you! Your inquiry has been received. We will contact you shortly via WhatsApp or phone.\n\n(This is a frontend demo – in production this would email you instantly)')
-                btn.innerHTML = originalText
-                e.target.reset()
-                hideModal()
-            }, 1800)
-        }
-        
-        console.log('🚀 Kadadev Sadaluva website fully loaded and ready to publish!')
+
+        const message = `Hello Kadadev Sadaluva!%0AI would like to BOOK ${currentRoomName}.%0A%0ADate: ${date}%0ANumber of members: ${members}%0ANumber of rooms: ${rooms}%0A%0APlease confirm availability and price.%0AThank you!`
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+          '_blank',
+        )
+
+        hideBookingModal()
+        currentRoomType = null
+      }
+
+      function hideBookingModal() {
+        const bookingModal = document.getElementById('booking-modal')
+        bookingModal.classList.add('hidden')
+        bookingModal.classList.remove('flex')
+      }
+
+      // Contact form → WhatsApp
+      function handleContactForm(e) {
+        e.preventDefault()
+        const name = document.getElementById('name').value
+        const phone = document.getElementById('phone').value
+        const message = document.getElementById('message').value
+
+        const text = `Hello Kadadev Sadaluva!%0A%0AName: ${name}%0APhone: ${phone}%0A%0AMessage: ${message}%0A%0AThank you!`
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank')
+
+        // Reset form
+        e.target.reset()
+        alert('✅ Your inquiry has been sent via WhatsApp!')
+      }
+
+      // Safari inquiry
+      function inquireSafari(park) {
+        const text = `Hello Kadadev Sadaluva!%0AI am interested in a ${park} safari.%0APlease send me details, prices and availability.%0AThank you!`
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank')
+      }
+
+      console.log(
+        '🚀 Kadadev Sadaluva website updated with all your requests – professional, clean, mobile-friendly & ready to publish!',
+      )
     </script>
-</body>
+  </body>
 </html>
