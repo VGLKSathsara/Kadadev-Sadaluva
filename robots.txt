@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kadadev-sadaluva.vercel.app/sitemap.xml
