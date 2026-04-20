@@ -207,10 +207,18 @@
       <div
         class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center"
       >
-        <a href="index.html" class="flex items-center h-16">
+        <a
+          href="#"
+          class="flex items-center h-16"
+          onclick="
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+            return false
+          "
+        >
           <img
             src="nav-logo.png"
             class="h-8 md:h-9 w-auto object-contain transition-opacity hover:opacity-80"
+            alt="Logo"
           />
         </a>
         <div class="hidden md:flex items-center gap-7 text-sm font-medium">
