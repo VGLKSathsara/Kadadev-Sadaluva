@@ -44,7 +44,7 @@
       }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/x-icon" href="logo.png" />
     <link
       rel="stylesheet"
@@ -207,14 +207,7 @@
       <div
         class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center"
       >
-        <a
-          href="#"
-          class="flex items-center h-16"
-          onclick="
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-            return false
-          "
-        >
+        <a href="#home" class="flex items-center h-16">
           <img
             src="nav-logo.png"
             class="h-8 md:h-9 w-auto object-contain transition-opacity hover:opacity-80"
@@ -222,46 +215,14 @@
           />
         </a>
         <div class="hidden md:flex items-center gap-7 text-sm font-medium">
-          <a
-            onclick="go('home')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Home</a
-          >
-          <a
-            onclick="go('about')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >About</a
-          >
-          <a
-            onclick="go('rooms')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Rooms</a
-          >
-          <a
-            onclick="go('halls')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Halls</a
-          >
-          <a
-            onclick="go('experiences')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Temples</a
-          >
-          <a
-            onclick="go('safari')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Safari</a
-          >
-          <a
-            onclick="go('gallery')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Gallery</a
-          >
-          <a
-            onclick="go('contact')"
-            class="nav-link cursor-pointer text-stone-700 hover:text-[#166534]"
-            >Contact</a
-          >
+          <a href="#home" class="nav-link text-stone-700 hover:text-[#166534]">Home</a>
+          <a href="#about" class="nav-link text-stone-700 hover:text-[#166534]">About</a>
+          <a href="#rooms" class="nav-link text-stone-700 hover:text-[#166534]">Rooms</a>
+          <a href="#halls" class="nav-link text-stone-700 hover:text-[#166534]">Halls</a>
+          <a href="#experiences" class="nav-link text-stone-700 hover:text-[#166534]">Temples</a>
+          <a href="#safari" class="nav-link text-stone-700 hover:text-[#166534]">Safari</a>
+          <a href="#gallery" class="nav-link text-stone-700 hover:text-[#166534]">Gallery</a>
+          <a href="#contact" class="nav-link text-stone-700 hover:text-[#166534]">Contact</a>
         </div>
         <div class="flex items-center gap-3">
           <a
@@ -285,70 +246,14 @@
         class="hidden md:hidden border-t bg-white px-5 pb-5"
       >
         <div class="pt-4 flex flex-col gap-1 text-sm font-medium">
-          <a
-            onclick="
-              go('home')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >Home</a
-          >
-          <a
-            onclick="
-              go('about')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >About</a
-          >
-          <a
-            onclick="
-              go('rooms')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >Rooms</a
-          >
-          <a
-            onclick="
-              go('halls')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >Halls</a
-          >
-          <a
-            onclick="
-              go('experiences')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >Temples</a
-          >
-          <a
-            onclick="
-              go('safari')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >Safari</a
-          >
-          <a
-            onclick="
-              go('gallery')
-              toggleMenu()
-            "
-            class="py-3 border-b border-stone-100 text-stone-700"
-            >Gallery</a
-          >
-          <a
-            onclick="
-              go('contact')
-              toggleMenu()
-            "
-            class="py-3 text-stone-700"
-            >Contact</a
-          >
+          <a href="#home" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">Home</a>
+          <a href="#about" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">About</a>
+          <a href="#rooms" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">Rooms</a>
+          <a href="#halls" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">Halls</a>
+          <a href="#experiences" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">Temples</a>
+          <a href="#safari" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">Safari</a>
+          <a href="#gallery" onclick="toggleMenu()" class="py-3 border-b border-stone-100 text-stone-700">Gallery</a>
+          <a href="#contact" onclick="toggleMenu()" class="py-3 text-stone-700">Contact</a>
         </div>
       </div>
     </nav>
@@ -1435,7 +1340,7 @@
     <div
       id="room-modal"
       onclick="if (event.target.id === 'room-modal') closeRoom()"
-      class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4"
+      class="hidden fixed inset-0 bg-black/70 z-[9999] items-center justify-center p-4"
     >
       <div
         onclick="event.stopPropagation()"
@@ -1449,7 +1354,7 @@
     <div
       id="choice-modal"
       onclick="if (event.target.id === 'choice-modal') closeChoice()"
-      class="hidden fixed inset-0 bg-black/70 z-[10000] flex items-center justify-center p-4"
+      class="hidden fixed inset-0 bg-black/70 z-[10000] items-center justify-center p-4"
     >
       <div
         onclick="event.stopPropagation()"
@@ -1491,7 +1396,7 @@
     <div
       id="booking-modal"
       onclick="if (event.target.id === 'booking-modal') closeBooking()"
-      class="hidden fixed inset-0 bg-black/70 z-[10001] flex items-center justify-center p-4"
+      class="hidden fixed inset-0 bg-black/70 z-[10001] items-center justify-center p-4"
     >
       <div
         onclick="event.stopPropagation()"
