@@ -1,3 +1,179 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Site styles. Everything animated here uses transform / opacity only, so the
+ * browser can run it on the compositor thread (no layout, no repaint per frame).
+ * Build with: npm run build:css
+ */
+
+:root {
+  --primary: #166534;
+  --primary-dark: #14532d;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.25rem; /* sticky navbar offset for anchor jumps */
+  scrollbar-gutter: stable; /* no layout shift when a modal locks scrolling */
+  -webkit-text-size-adjust: 100%;
+}
+
+html.modal-open {
+  overflow: hidden;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* Icon fonts load async: reserve the glyph box so nothing shifts when they arrive. */
+i.fa-solid,
+i.fa-brands {
+  display: inline-block;
+  min-width: 1em;
+  text-align: center;
+}
+
+@layer components {
+  /* Underline grows via transform (compositor) instead of animating width (layout). */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /*
+   * Cards: the resting shadow is static (painted once). Hover only moves the
+   * card with transform, so there is no per-frame box-shadow repaint.
+   */
+  .room-card,
+  .safari-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.18);
+  }
+  .room-card:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+  }
+
+  .gallery-img {
+    transition: transform 0.4s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .room-card:hover {
+      transform: translate3d(0, -6px, 0);
+    }
+    .safari-card:hover {
+      transform: translate3d(0, -5px, 0);
+    }
+    .gallery-img:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  .price-tag {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .modal-scroll {
+    max-height: 85vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .modal-anim {
+    animation: popIn 0.22s ease-out both;
+  }
+
+  .bounce {
+    animation: bounce 2s infinite;
+  }
+
+  /* Validation */
+  .input-error {
+    border-color: #dc2626 !important;
+  }
+  .err-msg {
+    color: #dc2626;
+    font-size: 11px;
+    margin-top: 4px;
+    min-height: 16px;
+  }
+
+  .booking-hint {
+    background: rgba(22, 101, 52, 0.08);
+    border-left: 3px solid var(--primary);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 8px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -4,213 +4,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kadadev Sadaluva | Kataragama New Town</title>
   <meta name="description"
     content="Kadadev Sadaluva - Comfortable AC & Non-AC rooms and spacious halls near Kataragama Devalaya and Kirivehera Temple. Perfect base for Yala & Weheragala Safari." />
+  <meta name="theme-color" content="#166534" />
+  <link rel="canonical" href="https://kadadev-sadaluva.vercel.app/" />
+
+  <meta property="og:site_name" content="Kadadev Sadaluva" />
   <meta property="og:title" content="Kadadev Sadaluva | Kataragama New Town" />
   <meta property="og:description"
     content="AC & Non-AC rooms near Kataragama Devalaya & Kirivehera Temple. Your peaceful base for pilgrimage & Yala safari." />
-  <meta property="og:image" content="https://kadadev-sadaluva.vercel.app/logo.png" />
+  <meta property="og:url" content="https://kadadev-sadaluva.vercel.app/" />
+  <meta property="og:image" content="https://kadadev-sadaluva.vercel.app/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Kadadev Sadaluva logo" />
   <meta property="og:type" content="website" />
-  <title>Kadadev Sadaluva | Kataragama New Town</title>
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ✅ Schema.org markup for Google (MOVE THIS AFTER meta tags) -->
-  <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Hotel",
-        "name": "Kadadev Sadaluva",
-        "image": "https://kadadev-sadaluva.vercel.app/logo.png",
-        "logo": "https://kadadev-sadaluva.vercel.app/logo.png",
-        "url": "https://kadadev-sadaluva.vercel.app",
-        "description": "Comfortable AC & Non-AC rooms near Kataragama Devalaya and Kirivehera Temple. Perfect base for Yala & Weheragala Safari.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kataragama",
-          "addressCountry": "Sri Lanka"
-        },
-        "telephone": "+94703714386"
-      }
-    </script>
+  <!-- Icons / PWA -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+  <link rel="apple-touch-icon" href="android-chrome-192x192.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
+  <!-- Connections warmed up before the browser discovers the resources -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- LCP image: the hero photo (matches the <img> in the hero exactly) -->
+  <link rel="preload" as="image" fetchpriority="high"
+    imagesrcset="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=800&q=70&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=1200&q=70&auto=format&fit=crop 1200w, https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=1600&q=70&auto=format&fit=crop 1600w"
+    imagesizes="100vw" />
+
+  <!-- Critical, small, render-blocking stylesheet (Tailwind build + site styles) -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/x-icon" href="logo.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap"
-    rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #166534;
-      --primary-dark: #14532d;
+
+  <!-- Fonts + icon font: loaded without blocking first paint -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=DM+Sans:wght@400..600&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=DM+Sans:wght@400..600&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </noscript>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Kadadev Sadaluva",
+      "image": "https://kadadev-sadaluva.vercel.app/og-image.jpg",
+      "logo": "https://kadadev-sadaluva.vercel.app/android-chrome-512x512.png",
+      "url": "https://kadadev-sadaluva.vercel.app/",
+      "description": "Comfortable AC & Non-AC rooms near Kataragama Devalaya and Kirivehera Temple. Perfect base for Yala & Weheragala Safari.",
+      "priceRange": "Rs. 4,000 - Rs. 8,500",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kataragama",
+        "addressCountry": "LK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 6.417297368665568,
+        "longitude": 81.33149636101558
+      },
+      "hasMap": "https://www.google.com/maps/dir/?api=1&destination=6.417297368665568,81.33149636101558",
+      "telephone": "+94703714386"
     }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    h1,
-    h2,
-    h3,
-    .font-display {
-      font-family: 'Playfair Display', serif;
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -3px;
-      left: 0;
-      background: #166534;
-      transition: width 0.25s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .hero-bg {
-      background-image:
-        linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.55) 0%,
-          rgba(0, 0, 0, 0.72) 100%),
-        url('https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=1200&q=80');
-      background-size: cover;
-      background-position: center top;
-    }
-
-    .room-card {
-      transition:
-        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.3s ease;
-    }
-
-    .room-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
-    }
-
-    .modal-anim {
-      animation: popIn 0.25s ease forwards;
-    }
-
-    @keyframes popIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .modal-scroll {
-      max-height: 85vh;
-      overflow-y: auto;
-    }
-
-    .gallery-img {
-      transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-    }
-
-    .gallery-img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .price-tag {
-      background: #166534;
-      color: white;
-      border-radius: 999px;
-      padding: 4px 14px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .bounce {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(8px);
-      }
-    }
-
-    .safari-card {
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .safari-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
-    }
-
-    @keyframes ping {
-
-      75%,
-      100% {
-        transform: scale(2);
-        opacity: 0;
-      }
-    }
-
-    .animate-ping {
-      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-
-    /* Validation */
-    .input-error {
-      border-color: #dc2626 !important;
-    }
-
-    .err-msg {
-      color: #dc2626;
-      font-size: 11px;
-      margin-top: 4px;
-      min-height: 16px;
-    }
-
-    .booking-hint {
-      background: rgba(22, 101, 52, 0.08);
-      border-left: 3px solid #166534;
-      border-radius: 8px;
-      padding: 8px 12px;
-      font-size: 12px;
-      color: #166534;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-  </style>
+  </script>
 </head>
 
 <body class="bg-white">
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[10002] focus:bg-white focus:text-[#166534] focus:font-semibold focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg">Skip to content</a>
   <!-- NAVBAR -->
-  <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+  <nav class="bg-white border-b sticky top-0 z-50 shadow-sm" aria-label="Main">
     <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
-      <a href="#home" class="flex items-center h-16">
-        <img src="nav-logo.png" class="h-8 md:h-9 w-auto object-contain transition-opacity hover:opacity-80"
-          alt="Logo" />
+      <a href="#home" class="flex items-center h-16" aria-label="Kadadev Sadaluva home">
+        <picture>
+          <source srcset="nav-logo.webp" type="image/webp" />
+          <img src="nav-logo.png" width="360" height="110" alt="Kadadev Sadaluva"
+            class="h-8 md:h-9 w-auto object-contain transition-opacity hover:opacity-80" decoding="async" />
+        </picture>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm font-medium">
         <a href="#home" class="nav-link text-stone-700 hover:text-[#166534]">Home</a>
@@ -223,13 +105,15 @@
         <a href="#contact" class="nav-link text-stone-700 hover:text-[#166534]">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="https://wa.me/94703714386" target="_blank"
+        <a href="https://wa.me/94703714386" target="_blank" rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
           class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2.5 rounded-full transition-colors">
           <i class="fa-brands fa-whatsapp text-lg"></i><span class="hidden sm:inline">WhatsApp</span>
         </a>
-        <button onclick="toggleMenu()"
+        <button type="button" onclick="toggleMenu()" id="menu-btn" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobile-menu"
           class="md:hidden text-xl text-stone-700 w-9 h-9 flex items-center justify-center">
-          <i class="fa-solid fa-bars" id="menu-icon"></i>
+          <i class="fa-solid fa-bars" id="menu-icon" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -247,14 +131,20 @@
     </div>
   </nav>
 
+  <main id="main">
   <!-- HERO -->
-  <section id="home" class="hero-bg min-h-screen flex items-center text-white relative">
+  <section id="home" class="relative isolate overflow-hidden min-h-screen min-h-[100svh] flex items-center text-white">
+    <img src="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=1200&q=70&auto=format&fit=crop"
+      srcset="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=800&q=70&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=1200&q=70&auto=format&fit=crop 1200w, https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=1600&q=70&auto=format&fit=crop 1600w"
+      sizes="100vw" width="1600" height="1067" alt="" fetchpriority="high" decoding="async"
+      class="absolute inset-0 -z-20 h-full w-full object-cover object-top" />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/[.55] to-black/[.72]"></div>
     <div class="max-w-7xl mx-auto px-6 text-center w-full">
       <div class="max-w-3xl mx-auto">
         <div
-          class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-5 py-2 rounded-full mb-8">
+          class="inline-flex items-center gap-2 bg-white/20 border border-white/25 text-white text-sm font-medium px-5 py-2 rounded-full mb-8">
           <span class="relative flex h-2.5 w-2.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 motion-reduce:animate-none"></span>
             <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400"></span>
           </span>
           5 min walk to Kataragama Devalaya &amp; Kirivehera Temple
@@ -270,7 +160,7 @@
             class="bg-[#166534] hover:bg-[#14532d] text-white font-semibold text-base px-9 py-4 rounded-full flex items-center justify-center gap-2 transition-colors">
             <i class="fa-solid fa-bed"></i> Explore Rooms &amp; Halls
           </button>
-          <a href="https://wa.me/94703714386" target="_blank"
+          <a href="https://wa.me/94703714386" target="_blank" rel="noopener noreferrer"
             class="border-2 border-white/60 hover:border-white hover:bg-white/10 text-white font-semibold text-base px-9 py-4 rounded-full flex items-center justify-center gap-2 transition-all">
             <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us
           </a>
@@ -380,11 +270,11 @@
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- AC Room -->
-        <div onclick="showRoom(1)"
+        <div data-room="1" role="button" tabindex="0"
           class="room-card bg-white border border-stone-100 rounded-3xl overflow-hidden cursor-pointer shadow-sm">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80"
-              alt="Air-Conditioned Room" class="h-52 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=70&auto=format&fit=crop 800w" sizes="(min-width:1024px) 384px, (min-width:768px) 50vw, 100vw"
+              alt="Air-Conditioned Room" class="h-52 w-full object-cover" loading="lazy" decoding="async" />
             <span class="absolute top-4 right-4 price-tag">Rs. 6,500 / night</span>
           </div>
           <div class="p-7">
@@ -415,11 +305,11 @@
         </div>
 
         <!-- Non-AC Large -->
-        <div onclick="showRoom(2)"
+        <div data-room="2" role="button" tabindex="0"
           class="room-card bg-white border border-stone-100 rounded-3xl overflow-hidden cursor-pointer shadow-sm">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Non-AC Large Room"
-              class="h-52 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=70&auto=format&fit=crop 800w" sizes="(min-width:1024px) 384px, (min-width:768px) 50vw, 100vw" alt="Non-AC Large Room"
+              class="h-52 w-full object-cover" loading="lazy" decoding="async" />
             <span class="absolute top-4 right-4 price-tag">Rs. 4,500 / night</span>
           </div>
           <div class="p-7">
@@ -446,11 +336,11 @@
         </div>
 
         <!-- Non-AC Standard -->
-        <div onclick="showRoom(3)"
+        <div data-room="3" role="button" tabindex="0"
           class="room-card bg-white border border-stone-100 rounded-3xl overflow-hidden cursor-pointer shadow-sm">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=800&q=80"
-              alt="Non-AC Standard Room" class="h-52 w-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=800&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1505693314120-0d443867891c?w=800&q=70&auto=format&fit=crop 800w" sizes="(min-width:1024px) 384px, (min-width:768px) 50vw, 100vw"
+              alt="Non-AC Standard Room" class="h-52 w-full object-cover" loading="lazy" decoding="async" />
             <span class="absolute top-4 right-4 price-tag">Rs. 4,000 / night</span>
           </div>
           <div class="p-7">
@@ -497,8 +387,8 @@
         <!-- Large Hall -->
         <div class="bg-white rounded-3xl shadow-md overflow-hidden">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt="Large Hall"
-              class="w-full h-56 object-cover" />
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=70&auto=format&fit=crop 900w" sizes="(min-width:768px) 50vw, 100vw" alt="Large Hall"
+              class="w-full h-56 object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
               <div>
                 <h3 class="text-2xl font-bold text-white">Large Hall</h3>
@@ -557,8 +447,8 @@
         <!-- Small Hall -->
         <div class="bg-white rounded-3xl shadow-md overflow-hidden">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80" alt="Small Hall"
-              class="w-full h-56 object-cover" />
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=70&auto=format&fit=crop 900w" sizes="(min-width:768px) 50vw, 100vw" alt="Small Hall"
+              class="w-full h-56 object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
               <div>
                 <h3 class="text-2xl font-bold text-white">Small Hall</h3>
@@ -636,7 +526,7 @@
         <div class="rounded-3xl overflow-hidden shadow-md">
           <div class="relative h-72">
             <img src="https://rmkd.lk/wp-content/uploads/2024/02/Kataragama-Esala-Festival-15.jpg"
-              alt="Kataragama Devalaya" class="w-full h-full object-cover" />
+              alt="Kataragama Devalaya" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-6">
               <span class="bg-[#166534] text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 inline-block">5 min
@@ -667,7 +557,7 @@
         <div class="rounded-3xl overflow-hidden shadow-md">
           <div class="relative h-72">
             <img src="https://rmkd.lk/wp-content/uploads/2024/02/Kiri-Vehera-770x415.jpg" alt="Kirivehera Temple"
-              class="w-full h-full object-cover" />
+              class="w-full h-full object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-6">
               <span class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 inline-block">8 min
@@ -698,11 +588,9 @@
 
   <!-- SAFARI -->
   <section id="safari" class="py-24 bg-stone-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="
-          background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80');
-          background-size: cover;
-          background-position: center top;
-        "></div>
+    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=70&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&q=70&auto=format&fit=crop 1200w, https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=70&auto=format&fit=crop 1600w" sizes="100vw"
+      alt="" loading="lazy" decoding="async"
+      class="absolute inset-0 h-full w-full object-cover object-top opacity-20" />
     <div class="relative max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
         <span
@@ -717,10 +605,10 @@
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="safari-card bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
+        <div class="safari-card bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?q=80"
-              alt="Yala National Park Leopard" class="w-full h-60 object-cover" />
+            <img src="https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?w=800&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?w=800&q=70&auto=format&fit=crop 800w" sizes="(min-width:768px) 50vw, 100vw"
+              alt="Yala National Park Leopard" class="w-full h-60 object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute top-4 left-4">
               <span class="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Sri Lanka's No.1
@@ -758,10 +646,10 @@
           </div>
         </div>
 
-        <div class="safari-card bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
+        <div class="safari-card bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1619183318129-cd95bc882275?q=80" alt="Weheragala National Park"
-              class="w-full h-60 object-cover" />
+            <img src="https://images.unsplash.com/photo-1619183318129-cd95bc882275?w=800&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1619183318129-cd95bc882275?w=480&q=70&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1619183318129-cd95bc882275?w=800&q=70&auto=format&fit=crop 800w" sizes="(min-width:768px) 50vw, 100vw" alt="Weheragala National Park"
+              class="w-full h-60 object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div class="absolute top-4 left-4">
               <span class="bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Hidden Gem</span>
@@ -819,56 +707,56 @@
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div class="relative rounded-2xl overflow-hidden aspect-square">
           <img src="https://rmkd.lk/wp-content/uploads/2024/02/Kataragama-Esala-Festival-15.jpg"
-            class="gallery-img w-full h-full object-cover" alt="Kataragama Devalaya" />
+            class="gallery-img w-full h-full object-cover" alt="Kataragama Devalaya" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Kataragama Devalaya</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
           <img src="https://rmkd.lk/wp-content/uploads/2024/02/Kiri-Vehera-770x415.jpg"
-            class="gallery-img w-full h-full object-cover" alt="Kirivehera Temple" />
+            class="gallery-img w-full h-full object-cover" alt="Kirivehera Temple" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Kirivehera Temple</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
-          <img src="https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?q=80&w=600"
-            class="gallery-img w-full h-full object-cover" alt="Yala Safari Leopard" />
+          <img src="https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?w=600&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?w=300&q=70&auto=format&fit=crop 300w, https://images.unsplash.com/photo-1571070201382-a45dd17e17e2?w=600&q=70&auto=format&fit=crop 600w" sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+            class="gallery-img w-full h-full object-cover" alt="Yala Safari Leopard" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Yala – Leopard</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
-          <img src="https://plus.unsplash.com/premium_photo-1661861726461-d62b9ac2cb77?q=80&w=600"
-            class="gallery-img w-full h-full object-cover" alt="Yala Safari Elephant" />
+          <img src="https://plus.unsplash.com/premium_photo-1661861726461-d62b9ac2cb77?w=600&q=70&auto=format&fit=crop" srcset="https://plus.unsplash.com/premium_photo-1661861726461-d62b9ac2cb77?w=300&q=70&auto=format&fit=crop 300w, https://plus.unsplash.com/premium_photo-1661861726461-d62b9ac2cb77?w=600&q=70&auto=format&fit=crop 600w" sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+            class="gallery-img w-full h-full object-cover" alt="Yala Safari Elephant" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Yala – Elephant</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
-          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80"
-            class="gallery-img w-full h-full object-cover" alt="AC Room" />
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=300&q=70&auto=format&fit=crop 300w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=70&auto=format&fit=crop 600w" sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+            class="gallery-img w-full h-full object-cover" alt="AC Room" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">AC Room</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
-          <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=80"
-            class="gallery-img w-full h-full object-cover" alt="Non-AC Room" />
+          <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=300&q=70&auto=format&fit=crop 300w, https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=70&auto=format&fit=crop 600w" sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+            class="gallery-img w-full h-full object-cover" alt="Non-AC Room" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Non-AC Room</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
-          <img src="https://images.unsplash.com/photo-1619183318129-cd95bc882275?q=80&w=600"
-            class="gallery-img w-full h-full object-cover" alt="Weheragala National Park" />
+          <img src="https://images.unsplash.com/photo-1619183318129-cd95bc882275?w=600&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1619183318129-cd95bc882275?w=300&q=70&auto=format&fit=crop 300w, https://images.unsplash.com/photo-1619183318129-cd95bc882275?w=600&q=70&auto=format&fit=crop 600w" sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+            class="gallery-img w-full h-full object-cover" alt="Weheragala National Park" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Weheragala Park</span>
           </div>
         </div>
         <div class="relative rounded-2xl overflow-hidden aspect-square">
-          <img src="https://images.unsplash.com/photo-1547707188-cdbffa0bc270?q=80&w=600"
-            class="gallery-img w-full h-full object-cover" alt="Sri Lanka Peacock" />
+          <img src="https://images.unsplash.com/photo-1547707188-cdbffa0bc270?w=600&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1547707188-cdbffa0bc270?w=300&q=70&auto=format&fit=crop 300w, https://images.unsplash.com/photo-1547707188-cdbffa0bc270?w=600&q=70&auto=format&fit=crop 600w" sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+            class="gallery-img w-full h-full object-cover" alt="Sri Lanka Peacock" loading="lazy" decoding="async" />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
             <span class="text-white text-xs font-semibold">Wildlife – Peacock</span>
           </div>
@@ -889,18 +777,18 @@
           <form id="contact-form" onsubmit="submitContact(event)" class="space-y-6">
             <div class="grid grid-cols-2 gap-5">
               <div>
-                <label class="block text-sm text-white/70 mb-2">Your Name</label>
-                <input type="text" id="c-name" required placeholder="Saman Perera"
+                <label for="c-name" class="block text-sm text-white/70 mb-2">Your Name</label>
+                <input type="text" id="c-name" name="name" autocomplete="name" required placeholder="Saman Perera"
                   class="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors" />
               </div>
               <div>
-                <label class="block text-sm text-white/70 mb-2">Phone / WhatsApp</label>
-                <input type="tel" id="c-phone" required placeholder="+94 77 000 0000" inputmode="tel"
+                <label for="c-phone" class="block text-sm text-white/70 mb-2">Phone / WhatsApp</label>
+                <input type="tel" id="c-phone" name="phone" autocomplete="tel" required placeholder="+94 77 000 0000" inputmode="tel"
                   class="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors" />
               </div>
             </div>
             <div>
-              <label class="block text-sm text-white/70 mb-2">Message</label>
+              <label for="c-msg" class="block text-sm text-white/70 mb-2">Message</label>
               <textarea id="c-msg" rows="4" required placeholder="Travel dates, group size, type of room..."
                 class="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none"></textarea>
             </div>
@@ -923,13 +811,13 @@
             Devalaya &amp; Kirivehera Temple, Sri Lanka
           </p>
           <div class="bg-white/5 border border-white/10 rounded-3xl p-1.5 mb-4 overflow-hidden">
-            <iframe width="100%" height="300" style="border: 0; border-radius: 20px; display: block"
+            <iframe title="Map: Kadadev Sadaluva, Kataragama" width="100%" height="300" style="border: 0; border-radius: 20px; display: block"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.123!2d81.33149636101558!3d6.417297368665568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNi40MTcyOTczNjg2NjU1NjgsIDgxLjMzMTQ5NjM2MTAxNTU4!5e0!3m2!1sen!2slk!4v1744800000000"
               allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
           <a href="https://www.google.com/maps/dir/?api=1&destination=6.417297368665568,81.33149636101558"
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             class="flex items-center justify-center gap-2 w-full bg-white text-[#166534] font-bold py-4 rounded-2xl mb-5 hover:bg-green-50 transition-colors text-sm">
             <i class="fa-solid fa-diamond-turn-right text-[#166534] text-base"></i>
             Get Directions to Kadadev Sadaluva
@@ -943,7 +831,7 @@
               <div class="text-xs text-white/50">Call</div>
               <div class="text-xs font-semibold">070 371 4386</div>
             </a>
-            <a href="https://wa.me/94703714386" target="_blank"
+            <a href="https://wa.me/94703714386" target="_blank" rel="noopener noreferrer"
               class="flex flex-col items-center gap-2 bg-green-600/30 hover:bg-green-600/50 transition-colors rounded-2xl p-4 text-center">
               <div class="w-10 h-10 bg-green-500/30 rounded-xl flex items-center justify-center">
                 <i class="fa-brands fa-whatsapp text-green-300 text-lg"></i>
@@ -952,7 +840,7 @@
               <div class="text-xs font-semibold">Chat Now</div>
             </a>
             <a href="https://www.google.com/maps/dir/?api=1&destination=6.417297368665568,81.33149636101558"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               class="flex flex-col items-center gap-2 bg-blue-500/20 hover:bg-blue-500/30 transition-colors rounded-2xl p-4 text-center">
               <div class="w-10 h-10 bg-blue-400/20 rounded-xl flex items-center justify-center">
                 <i class="fa-solid fa-map-location-dot text-blue-300"></i>
@@ -966,6 +854,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer class="bg-stone-950 text-white/50 py-10">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -976,24 +866,24 @@
         </p>
       </div>
       <div class="flex gap-5 text-xl">
-        <a href="https://wa.me/94703714386" target="_blank" class="hover:text-green-400 transition-colors"><i
-            class="fa-brands fa-whatsapp"></i></a>
-        <a href="tel:0703714386" class="hover:text-white transition-colors"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/94703714386" target="_blank" rel="noopener noreferrer" class="hover:text-green-400 transition-colors" aria-label="WhatsApp"><i
+            class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        <a href="tel:0703714386" class="hover:text-white transition-colors" aria-label="Call 070 371 4386"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
       </div>
     </div>
   </footer>
 
   <!-- ROOM DETAIL MODAL -->
-  <div id="room-modal" onclick="if (event.target.id === 'room-modal') closeRoom()"
-    class="hidden fixed inset-0 bg-black/70 z-[9999] items-center justify-center p-4">
+  <div id="room-modal" role="dialog" aria-modal="true" aria-label="Room details"
+    onclick="if (event.target.id === 'room-modal') closeRoom()" class="hidden fixed inset-0 bg-black/70 z-[9999] items-center justify-center p-4">
     <div onclick="event.stopPropagation()" class="modal-anim bg-white max-w-2xl w-full rounded-3xl modal-scroll">
       <div id="room-content" class="p-8 md:p-10"></div>
     </div>
   </div>
 
   <!-- CHOICE MODAL -->
-  <div id="choice-modal" onclick="if (event.target.id === 'choice-modal') closeChoice()"
-    class="hidden fixed inset-0 bg-black/70 z-[10000] items-center justify-center p-4">
+  <div id="choice-modal" role="dialog" aria-modal="true" aria-labelledby="choice-room-name"
+    onclick="if (event.target.id === 'choice-modal') closeChoice()" class="hidden fixed inset-0 bg-black/70 z-[10000] items-center justify-center p-4">
     <div onclick="event.stopPropagation()" class="modal-anim bg-white max-w-sm w-full rounded-3xl p-9 text-center">
       <div class="w-14 h-14 bg-[#166534]/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
         <i class="fa-solid fa-bed text-[#166534] text-2xl"></i>
@@ -1019,16 +909,16 @@
   </div>
 
   <!-- BOOKING MODAL -->
-  <div id="booking-modal" onclick="if (event.target.id === 'booking-modal') closeBooking()"
-    class="hidden fixed inset-0 bg-black/70 z-[10001] items-center justify-center p-4">
+  <div id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title"
+    onclick="if (event.target.id === 'booking-modal') closeBooking()" class="hidden fixed inset-0 bg-black/70 z-[10001] items-center justify-center p-4">
     <div onclick="event.stopPropagation()" class="modal-anim bg-white max-w-md w-full rounded-3xl p-8">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-xl font-bold text-stone-900" id="booking-title">
           Book Room
         </h3>
-        <button onclick="closeBooking()"
+        <button type="button" onclick="closeBooking()" aria-label="Close"
           class="text-3xl text-stone-300 hover:text-stone-600 leading-none transition-colors">
-          x
+          &times;
         </button>
       </div>
 
@@ -1037,20 +927,20 @@
 
       <form onsubmit="submitBooking(event)" novalidate class="space-y-5">
         <div>
-          <label class="block text-sm font-medium text-stone-600 mb-1.5">Preferred Date</label>
+          <label for="b-date" class="block text-sm font-medium text-stone-600 mb-1.5">Preferred Date</label>
           <input type="date" id="b-date" required
             class="w-full border border-stone-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-[#166534] transition-colors" />
           <p class="err-msg" id="err-date"></p>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-medium text-stone-600 mb-1.5">No. of Guests</label>
+            <label for="b-members" class="block text-sm font-medium text-stone-600 mb-1.5">No. of Guests</label>
             <input type="number" id="b-members" min="1" required inputmode="numeric"
               class="w-full border border-stone-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-[#166534] transition-colors" />
             <p class="err-msg" id="err-members"></p>
           </div>
           <div>
-            <label class="block text-sm font-medium text-stone-600 mb-1.5">No. of Rooms</label>
+            <label for="b-rooms" class="block text-sm font-medium text-stone-600 mb-1.5">No. of Rooms</label>
             <input type="number" id="b-rooms" min="1" required inputmode="numeric"
               class="w-full border border-stone-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-[#166534] transition-colors" />
             <p class="err-msg" id="err-rooms"></p>
@@ -1069,6 +959,10 @@
     const WA = '94703714386'
     let roomName = ''
     let currentRoomId = null
+    let lastFocus = null
+
+    const img = (id, w) =>
+      'https://images.unsplash.com/' + id + '?w=' + w + '&q=70&auto=format&fit=crop'
 
     // Room config
     const ROOMS = {
@@ -1077,7 +971,7 @@
         price: 'Rs. 6,500 / night',
         maxGuests: 5,
         totalRooms: 6,
-        img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80',
+        img: img('photo-1631049307264-da0ec9d70304', 900),
         tag: 'AC',
         tagCls: 'bg-emerald-100 text-emerald-700',
         details: [
@@ -1095,7 +989,7 @@
         price: 'Rs. 4,500 / night',
         maxGuests: 9,
         totalRooms: 1,
-        img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80',
+        img: img('photo-1586023492125-27b2c045efd7', 900),
         tag: 'NON-AC',
         tagCls: 'bg-amber-100 text-amber-700',
         details: [
@@ -1112,7 +1006,7 @@
         price: 'Rs. 4,000 / night',
         maxGuests: 5,
         totalRooms: 2,
-        img: 'https://images.unsplash.com/photo-1505693314120-0d443867891c?w=900&q=80',
+        img: img('photo-1505693314120-0d443867891c', 900),
         tag: 'NON-AC',
         tagCls: 'bg-amber-100 text-amber-700',
         details: [
@@ -1126,31 +1020,86 @@
       },
     }
 
+    const $ = (id) => document.getElementById(id)
+
+    // Local calendar date as YYYY-MM-DD. (toISOString() is UTC, so in Sri Lanka
+    // (UTC+5:30) it returned *yesterday* between 00:00 and 05:30.)
+    function localToday() {
+      const d = new Date()
+      const p = (n) => String(n).padStart(2, '0')
+      return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate())
+    }
+
+    function openWA(text) {
+      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(text), '_blank', 'noopener')
+    }
+
     function go(id) {
-      const el = document.getElementById(id)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      const el = $(id)
+      if (el) el.scrollIntoView() // smooth / instant is decided by CSS (honours reduced-motion)
     }
 
     function toggleMenu() {
-      document.getElementById('mobile-menu').classList.toggle('hidden')
-      const ic = document.getElementById('menu-icon')
-      ic.classList.toggle('fa-bars')
-      ic.classList.toggle('fa-xmark')
+      const menu = $('mobile-menu')
+      menu.classList.toggle('hidden')
+      const open = !menu.classList.contains('hidden')
+      const ic = $('menu-icon')
+      ic.classList.toggle('fa-bars', !open)
+      ic.classList.toggle('fa-xmark', open)
+      const btn = $('menu-btn')
+      btn.setAttribute('aria-expanded', String(open))
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
     }
 
-    // Init date on load
     window.addEventListener('DOMContentLoaded', () => {
-      const today = new Date().toISOString().split('T')[0]
-      const d = document.getElementById('b-date')
+      const today = localToday()
+      const d = $('b-date')
       d.min = today
       d.value = today
       d.addEventListener('change', validateDate)
-      document
-        .getElementById('b-members')
-        .addEventListener('input', validateMembers)
-      document
-        .getElementById('b-rooms')
-        .addEventListener('input', validateRooms)
+      $('b-members').addEventListener('input', validateMembers)
+      $('b-rooms').addEventListener('input', validateRooms)
+
+      // Room cards: mouse + keyboard (Enter / Space)
+      document.querySelectorAll('[data-room]').forEach((card) => {
+        const open = () => showRoom(Number(card.dataset.room))
+        card.addEventListener('click', open)
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            open()
+          }
+        })
+      })
+    })
+
+    // ---- Modal plumbing ----
+    function openModal(id) {
+      const el = $(id)
+      // Remember the page element that opened the first modal in a chain (room -> choice -> booking)
+      const a = document.activeElement
+      if (a && a !== document.body && !a.closest('[role="dialog"]')) lastFocus = a
+      el.classList.remove('hidden')
+      el.classList.add('flex')
+      document.documentElement.classList.add('modal-open')
+      const focusable = el.querySelector('button, [href], input, select, textarea')
+      if (focusable) focusable.focus({ preventScroll: true })
+    }
+    function closeModal(id, restoreFocus = true) {
+      const el = $(id)
+      el.classList.add('hidden')
+      el.classList.remove('flex')
+      const anyOpen = document.querySelector('[role="dialog"].flex')
+      if (!anyOpen) document.documentElement.classList.remove('modal-open')
+      if (restoreFocus && lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true })
+    }
+
+    // Esc closes the top-most open modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return
+      if (!$('booking-modal').classList.contains('hidden')) closeBooking()
+      else if (!$('choice-modal').classList.contains('hidden')) closeChoice()
+      else if (!$('room-modal').classList.contains('hidden')) closeRoom()
     })
 
     // ---- Room modal ----
@@ -1167,12 +1116,12 @@
       </div>`,
         )
         .join('')
-      document.getElementById('room-content').innerHTML = `
-      <button onclick="closeRoom()" class="float-right text-3xl text-stone-300 hover:text-stone-600 leading-none -mt-1">x</button>
+      $('room-content').innerHTML = `
+      <button type="button" onclick="closeRoom()" aria-label="Close" class="float-right text-3xl text-stone-300 hover:text-stone-600 leading-none -mt-1">&times;</button>
       <div class="clear-both"></div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <img src="${r.img}" class="rounded-2xl w-full h-56 object-cover mb-4" alt="${r.name}" />
+          <img src="${r.img}" width="900" height="600" decoding="async" class="rounded-2xl w-full h-56 object-cover mb-4" alt="${r.name}" />
           <div class="flex items-center justify-between">
             <span class="text-xs px-3 py-1 rounded-full font-semibold ${r.tagCls}">${r.tag}</span>
             <span class="text-lg font-bold text-[#166534]">${r.price}</span>
@@ -1182,58 +1131,51 @@
           <h2 class="text-2xl font-bold text-stone-900 mb-5">${r.name}</h2>
           <div>${rows}</div>
           <p class="text-stone-500 text-sm mt-4">${r.note}</p>
-          <button onclick="closeRoom();showChoice()"
+          <button type="button" onclick="closeRoom(false);showChoice()"
             class="mt-6 w-full bg-[#166534] hover:bg-[#14532d] text-white py-4 rounded-2xl font-semibold flex items-center justify-center gap-2 transition-colors">
             <i class="fa-brands fa-whatsapp"></i> Book / Inquire on WhatsApp
           </button>
         </div>
       </div>`
+      $('room-modal').setAttribute('aria-label', r.name + ' details')
       openModal('room-modal')
     }
 
     function showChoice() {
-      document.getElementById('choice-room-name').textContent = roomName
+      $('choice-room-name').textContent = roomName
       openModal('choice-modal')
     }
 
-    function closeRoom() {
-      closeModal('room-modal')
+    function closeRoom(restoreFocus = true) {
+      closeModal('room-modal', restoreFocus)
     }
-    function closeChoice() {
-      closeModal('choice-modal')
+    function closeChoice(restoreFocus = true) {
+      closeModal('choice-modal', restoreFocus)
     }
 
     function openBooking() {
-      closeChoice()
+      closeChoice(false)
       const r = ROOMS[currentRoomId]
-      document.getElementById('booking-title').textContent = 'Book ' + r.name
-      document.getElementById('booking-hint').textContent =
-        'Max ' +
-        r.maxGuests +
-        ' guests per room  ·  ' +
-        r.totalRooms +
-        ' room' +
-        (r.totalRooms > 1 ? 's' : '') +
-        ' available  ·  ' +
-        r.price
+      $('booking-title').textContent = 'Book ' + r.name
+      $('booking-hint').textContent =
+        'Max ' + r.maxGuests + ' guests per room  ·  ' +
+        r.totalRooms + ' room' + (r.totalRooms > 1 ? 's' : '') + ' available  ·  ' + r.price
 
-      // Set hard max attributes
-      document.getElementById('b-members').max = r.maxGuests * r.totalRooms
-      document.getElementById('b-rooms').max = r.totalRooms
+      // Hard max attributes
+      $('b-members').max = r.maxGuests * r.totalRooms
+      $('b-rooms').max = r.totalRooms
 
       // Reset fields & errors
-      document.getElementById('b-members').value = ''
-      document.getElementById('b-rooms').value = ''
-      clearErr('err-date')
-      clearErr('err-members')
-      clearErr('err-rooms')
-      document.getElementById('b-date').classList.remove('input-error')
-      document.getElementById('b-members').classList.remove('input-error')
-      document.getElementById('b-rooms').classList.remove('input-error')
+      $('b-members').value = ''
+      $('b-rooms').value = ''
+      ;['date', 'members', 'rooms'].forEach((k) => {
+        clearErr('err-' + k)
+        $('b-' + k).classList.remove('input-error')
+      })
 
-      // Ensure date is today min
-      const today = new Date().toISOString().split('T')[0]
-      const d = document.getElementById('b-date')
+      // Ensure date is today at the earliest
+      const today = localToday()
+      const d = $('b-date')
       d.min = today
       if (!d.value || d.value < today) d.value = today
 
@@ -1245,31 +1187,26 @@
     }
 
     function quickInquire() {
-      closeChoice()
-      const msg = encodeURIComponent(
-        'Hello Kadadev Sadaluva!\nI am inquiring about the ' +
-        roomName +
+      closeChoice(false)
+      openWA(
+        'Hello Kadadev Sadaluva!\nI am inquiring about the ' + roomName +
         '.\nPlease send me more details.\nThank you!',
       )
-      window.open('https://wa.me/' + WA + '?text=' + msg, '_blank')
     }
 
     // ---- Validation ----
+    // The message slot keeps its min-height (see .err-msg) so showing/hiding an
+    // error never shifts the layout.
     function setErr(id, msg) {
-      const el = document.getElementById(id)
-      el.textContent = msg
-      el.style.display = 'block'
+      $(id).textContent = msg
     }
     function clearErr(id) {
-      const el = document.getElementById(id)
-      el.textContent = ''
-      el.style.display = 'none'
+      $(id).textContent = ''
     }
 
     function validateDate() {
-      const el = document.getElementById('b-date')
-      const today = new Date().toISOString().split('T')[0]
-      if (!el.value || el.value < today) {
+      const el = $('b-date')
+      if (!el.value || el.value < localToday()) {
         el.classList.add('input-error')
         setErr('err-date', 'Please select today or a future date.')
         return false
@@ -1282,15 +1219,15 @@
     function validateMembers() {
       if (!currentRoomId) return true
       const r = ROOMS[currentRoomId]
-      const el = document.getElementById('b-members')
-      let val = parseInt(el.value)
+      const el = $('b-members')
+      let val = parseInt(el.value, 10)
       const maxTotal = r.maxGuests * r.totalRooms
-      // Hard clamp — user cannot type beyond limit
+      // Hard clamp — user cannot go beyond the limit
       if (val > maxTotal) {
         el.value = maxTotal
         val = maxTotal
       }
-      if (val < 1 || isNaN(val)) {
+      if (isNaN(val) || val < 1) {
         el.classList.add('input-error')
         setErr('err-members', 'Enter at least 1 guest.')
         return false
@@ -1303,22 +1240,19 @@
     function validateRooms() {
       if (!currentRoomId) return true
       const r = ROOMS[currentRoomId]
-      const el = document.getElementById('b-rooms')
-      let val = parseInt(el.value)
-      // Hard clamp
+      const el = $('b-rooms')
+      let val = parseInt(el.value, 10)
       if (val > r.totalRooms) {
         el.value = r.totalRooms
         val = r.totalRooms
       }
-      if (val < 1 || isNaN(val)) {
+      if (isNaN(val) || val < 1) {
         el.classList.add('input-error')
         setErr('err-rooms', 'Enter at least 1 room.')
         return false
       }
       el.classList.remove('input-error')
       clearErr('err-rooms')
-      // Re-check members since max guests depends on room count
-      if (document.getElementById('b-members').value) validateMembers()
       return true
     }
 
@@ -1329,40 +1263,25 @@
       const okMembers = validateMembers()
       if (!okDate || !okRooms || !okMembers) return
 
-      const date = document.getElementById('b-date').value
-      const members = document.getElementById('b-members').value
-      const roomQty = document.getElementById('b-rooms').value
-      const msg = encodeURIComponent(
-        'Hello Kadadev Sadaluva!\nI would like to BOOK: ' +
-        roomName +
-        '\n\nDate: ' +
-        date +
-        '\nNumber of guests: ' +
-        members +
-        '\nNumber of rooms: ' +
-        roomQty +
+      openWA(
+        'Hello Kadadev Sadaluva!\nI would like to BOOK: ' + roomName +
+        '\n\nDate: ' + $('b-date').value +
+        '\nNumber of guests: ' + $('b-members').value +
+        '\nNumber of rooms: ' + $('b-rooms').value +
         '\n\nPlease confirm availability and price.\nThank you!',
       )
-      window.open('https://wa.me/' + WA + '?text=' + msg, '_blank')
       closeBooking()
     }
 
     function submitContact(e) {
       e.preventDefault()
-      const name = document.getElementById('c-name').value
-      const phone = document.getElementById('c-phone').value
-      const msg = document.getElementById('c-msg').value
-      const text = encodeURIComponent(
-        'Hello Kadadev Sadaluva!\n\nName: ' +
-        name +
-        '\nPhone: ' +
-        phone +
-        '\n\nMessage: ' +
-        msg +
+      openWA(
+        'Hello Kadadev Sadaluva!\n\nName: ' + $('c-name').value +
+        '\nPhone: ' + $('c-phone').value +
+        '\n\nMessage: ' + $('c-msg').value +
         '\n\nThank you!',
       )
-      window.open('https://wa.me/' + WA + '?text=' + text, '_blank')
-      const suc = document.getElementById('form-success')
+      const suc = $('form-success')
       suc.classList.remove('hidden')
       suc.classList.add('flex')
       e.target.reset()
@@ -1373,32 +1292,17 @@
     }
 
     function inquireSafari(park) {
-      const msg = encodeURIComponent(
-        'Hello Kadadev Sadaluva!\nI am interested in a ' +
-        park +
+      openWA(
+        'Hello Kadadev Sadaluva!\nI am interested in a ' + park +
         ' safari.\nPlease send me details, prices, and availability.\nThank you!',
       )
-      window.open('https://wa.me/' + WA + '?text=' + msg, '_blank')
     }
 
     function inquireHall(hall) {
-      const msg = encodeURIComponent(
-        'Hello Kadadev Sadaluva!\nI am inquiring about the ' +
-        hall +
+      openWA(
+        'Hello Kadadev Sadaluva!\nI am inquiring about the ' + hall +
         '.\nPlease send me details and availability.\nThank you!',
       )
-      window.open('https://wa.me/' + WA + '?text=' + msg, '_blank')
-    }
-
-    function openModal(id) {
-      const el = document.getElementById(id)
-      el.classList.remove('hidden')
-      el.classList.add('flex')
-    }
-    function closeModal(id) {
-      const el = document.getElementById(id)
-      el.classList.add('hidden')
-      el.classList.remove('flex')
     }
   </script>
 </body>
